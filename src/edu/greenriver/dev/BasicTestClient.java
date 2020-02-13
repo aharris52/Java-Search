@@ -29,7 +29,7 @@ import java.util.Scanner;
  */
 public class BasicTestClient {
 
-    private final static String FILENAME = "basic.txt";
+    private final static String FILENAME = "tinytale.txt";
 
     /**
      * Main method for BasicTestClient
@@ -39,8 +39,11 @@ public class BasicTestClient {
         // ported code using example on p. 370
         // using Java file I/O instead of authors' StdIn
 
-        SequentialSearchST<String, Integer> symbolTable =
-                new SequentialSearchST<>();
+        //SequentialSearchST<String, Integer> symbolTable = new SequentialSearchST<>();
+
+        //BinarySearchST<String, Integer> symbolTable = new BinarySearchST<>(1);
+
+        ArrayST<String, Integer> symbolTable = new ArrayST<String, Integer>();
 
         try (Scanner scanner = new Scanner(new BufferedReader(new FileReader(FILENAME)))) {
 
@@ -57,6 +60,7 @@ public class BasicTestClient {
         for (String s : symbolTable.keys()) {
             System.out.println(s + " " + symbolTable.get(s));
         }
+
     }
 
 }
