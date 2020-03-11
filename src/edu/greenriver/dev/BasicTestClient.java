@@ -29,7 +29,7 @@ import java.util.Scanner;
  */
 public class BasicTestClient {
 
-    private final static String FILENAME = "tinytale.txt";
+    private final static String FILENAME = "basic.txt";
 
     /**
      * Main method for BasicTestClient
@@ -44,6 +44,8 @@ public class BasicTestClient {
         //BinarySearchST<String, Integer> symbolTable = new BinarySearchST<>(1);
 
         ArrayST<String, Integer> symbolTable = new ArrayST<String, Integer>();
+
+        /*RedBlackBST<String, Integer> symbolTable = new RedBlackBST<>();*/
 
         try (Scanner scanner = new Scanner(new BufferedReader(new FileReader(FILENAME)))) {
 

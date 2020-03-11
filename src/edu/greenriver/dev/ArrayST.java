@@ -12,7 +12,7 @@ package edu.greenriver.dev;
  * @version 1.0
  */
 public class ArrayST<K, V> {
-    private static final int INIT_CAP = 10;
+    private static final int INIT_CAP = 8;
     private K[] keys;
     private V[] vals;
     private int n;
@@ -21,7 +21,7 @@ public class ArrayST<K, V> {
      * Initializes an empty symbol table with the specified initial capacity.
      */
     public ArrayST(){
-        keys = (K[]) new Comparable[INIT_CAP];
+        keys = (K[]) new Object[INIT_CAP];
         vals = (V[]) new Object[INIT_CAP];
     }
 
@@ -32,10 +32,15 @@ public class ArrayST<K, V> {
      * @param  val the value
      */
     public void put(K key, V val){
+        delete(key);
         //resize if needed
         if(n >= vals.length){
             resize(2*n);
         }
+        //append key : value pair
+        keys[n] = key;
+        vals[n] = val;
+        n++;
     }
 
     /**
