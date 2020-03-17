@@ -21,9 +21,9 @@ import java.util.Scanner;
 
 public class FrequencyCounter {
 
-    private static final int MINLEN = 1;
-    /*private static final String FILENAME = "tale.txt";*/
-    private static final String FILENAME = "tinytale.txt";
+    private static final int MINLEN = 8;
+    private static final String FILENAME = "tale.txt";
+    /*private static final String FILENAME = "tinytale.txt";*/
 
 /*
 *
@@ -46,7 +46,9 @@ public class FrequencyCounter {
 
              //BST<String, Integer> symbolTable = new BST<>();
 
-            RedBlackBST<String, Integer> symbolTable = new RedBlackBST<>();
+            /*RedBlackBST<String, Integer> symbolTable = new RedBlackBST<>();*/
+
+            SeperateChainingHashST<String, Integer> symbolTable = new SeperateChainingHashST<>();
 
             while (scanner.hasNext()) {
                 String word = scanner.next();

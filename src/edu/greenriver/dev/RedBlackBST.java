@@ -39,7 +39,16 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
     public RedBlackBST() {
         root = null;
     }
-    // helper methods
+
+    /**
+     * Inserts the specified key-value pair into the symbol table, overwriting the old
+     * value with the new value if the symbol table already contains the specified key.
+     * Deletes the specified key (and its associated value) from this symbol table
+     * if the specified value is {@code null}.
+     *
+     * @param key the key
+     * @param val the value
+     */
     public Node put(Key key, Value val) {
         return root = put(root, key, val);
     }
@@ -72,17 +81,20 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         current.count = 1 + size(current.left) + size(current.right);
         return current;
     }
+    // is node x red; false if x is null
     private boolean isRed(Node x) {
         if(x == null) {
             return false;
         }
         return x.color == RED;
     }
+    // flip the colors of a node and its two children
     private void flipColors(Node h) {
         h.color = RED;
         h.left.color = BLACK;
         h.right.color = BLACK;
     }
+    // make a right-leaning link lean to the left
     private Node rotateLeft(Node h) {
         Node x = h.right;
         h.right = x.left;
@@ -93,6 +105,7 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         h.count = 1 + size(h.left) + size(h.right);
         return x;
     }
+    // make a left-leaning link lean to the right
     private Node rotateRight(Node h) {
         Node x = h.left;
         h.left = x.right;
@@ -103,7 +116,12 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         h.count = 1 + size(h.left) + size(x.right);
         return x;
     }
-    // methods
+    /**
+     * Returns the value associated with the given key.
+     * @param key the key
+     * @return the value associated with the given key if the key is in the symbol table
+     *     and {@code null} if the key is not in the symbol table
+     */
     public Value get(Key key) {
         Node current = root;
         while(current != null) {
@@ -120,12 +138,26 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         }//end of while loop
         return null; // if we get here then the key does not exist in tree
     }
+
+    /**
+     * Returns the number of key-value pairs in this symbol table.
+     * @return the number of key-value pairs in this symbol table
+     */
     private int size(Node current) {
         if(current == null) {
             return 0;
         }
         return current.count;
     }
+
+    /**
+     * Is this symbol table empty?
+     * @return {@code true} if this symbol table is empty and {@code false} otherwise
+     */
+    public boolean isEmpty() {
+        return root == null;
+    }
+
     //returns a queue with all the keys in order
     public Iterable<Key> keys() {
         Queue<Key> q = new Queue<>();
