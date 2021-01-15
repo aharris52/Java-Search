@@ -1,5 +1,10 @@
 package edu.greenriver.dev;
 
+/*
+* @author Andrew Harris
+* @version 1.0
+*/
+
 public class SeperateChainingHashST<Key, Value> {
 
     private int M;  //hash table size
