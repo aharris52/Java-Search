@@ -1,5 +1,10 @@
 package edu.greenriver.dev;
 
+/*
+* @author Andrew Harris
+* @version 1.0
+*/
+
 public class TrieST<Value> {
     private final static int R = 256;
     private Node root = new Node();
