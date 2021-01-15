@@ -25,6 +25,7 @@ import java.util.StringJoiner;
  * @author Robert Sedgewick
  * @author Kevin Wayne
  * @author Kendrick Hang
+ * @author Andrew Harris
  * @version 2.0
  */
 public class Queue<E> implements Iterable<E> {
