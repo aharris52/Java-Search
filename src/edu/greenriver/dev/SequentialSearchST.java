@@ -10,7 +10,7 @@ import java.util.StringJoiner;
  * @param <K> Key
  * @param <V> Value
  *
- * @author PUT YOUR NAME HERE
+ * @author Andrew Harris
  * @version 1.0
  */
 public class SequentialSearchST<K, V> {
