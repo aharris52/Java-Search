@@ -8,7 +8,7 @@ package edu.greenriver.dev;
  * @param <K> Key
  * @param <V> Value
  *
- * @author PUT YOUR NAME HERE
+ * @author Andrew Harris
  * @version 1.0
  */
 public class ArrayST<K, V> {
